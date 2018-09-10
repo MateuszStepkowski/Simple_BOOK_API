@@ -41,7 +41,7 @@ public class MemoryBookService {
         return null;
     }
 
-    public void addNewBook(Book book) {
+    public String addNewBook(Book book) {
 
         boolean alreadyExist = false;
         for (Book b : list) {
@@ -53,6 +53,24 @@ public class MemoryBookService {
         if (alreadyExist == false) {
             book.setId(this.nextId++);
             this.list.add(book);
+            return "added";
         }
+        return "already exist";
+    }
+
+    public String updateBook(long id, Book book) {
+
+        for (Book b : list){
+
+            if (b.getId() == id){
+                b.setIsbn(book.getIsbn());
+                b.setTitle(book.getTitle());
+                b.setAuthor(book.getAuthor());
+                b.setPublisher(book.getPublisher());
+                b.setType(book.getType());
+                return "updated";
+            }
+        }
+        return "not exist";
     }
 }

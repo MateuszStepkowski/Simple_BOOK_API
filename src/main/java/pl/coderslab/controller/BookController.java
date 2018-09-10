@@ -37,8 +37,13 @@ public class BookController {
     }
 
     @PostMapping("/")
-    public void addNewBook(@RequestBody Book book) {
-        memoryBookService.addNewBook(book);
+    public String addNewBook(@RequestBody Book book) {
+        return memoryBookService.addNewBook(book);
+    }
+
+    @PutMapping("/{id}")
+    public String updateBook(@PathVariable long id, @RequestBody Book book) {
+        return memoryBookService.updateBook(id, book);
     }
 
 
