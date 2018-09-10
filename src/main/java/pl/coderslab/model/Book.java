@@ -11,6 +11,18 @@ public class Book {
     private String publisher;
     private String type;
 
+    public Book() {
+    }
+
+    public Book(long id, String isbn, String title, String author, String publisher, String type) {
+        this.id = id;
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.type = type;
+    }
+
     public long getId() {
         return id;
     }
@@ -76,5 +88,17 @@ public class Book {
     public int hashCode() {
 
         return Objects.hash(getId(), getIsbn(), getTitle(), getAuthor(), getPublisher(), getType());
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
