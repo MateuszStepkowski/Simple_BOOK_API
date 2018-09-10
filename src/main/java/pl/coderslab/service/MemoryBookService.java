@@ -73,4 +73,14 @@ public class MemoryBookService {
         }
         return "not exist";
     }
+
+    public String deleteBook(long id) {
+
+        if (this.list.remove(this.getBookById(id)) ){
+            return "deleted";
+        }
+
+        return "not exist";
+
+    }
 }

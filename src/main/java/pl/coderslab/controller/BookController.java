@@ -46,7 +46,12 @@ public class BookController {
         return memoryBookService.updateBook(id, book);
     }
 
+    @DeleteMapping("/{id}")
+    public String deleteBook(@PathVariable long id) {
 
+       return memoryBookService.deleteBook(id);
+    }
+    
 
 }
 
