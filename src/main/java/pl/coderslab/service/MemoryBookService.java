@@ -8,7 +8,11 @@ import java.util.List;
 
 @Service
 public class MemoryBookService {
+
+
     private List<Book> list;
+
+    private static long nextId = 4;
 
     public MemoryBookService() {
         list = new ArrayList<>();
@@ -30,10 +34,25 @@ public class MemoryBookService {
 
     public Book getBookById(long id) {
 
-        for (Book book : list){
+        for (Book book : list) {
             if (book.getId() == id) return book;
         }
 
         return null;
+    }
+
+    public void addNewBook(Book book) {
+
+        boolean alreadyExist = false;
+        for (Book b : list) {
+            if (b.equals(book)) {
+                alreadyExist = true;
+                break;
+            }
+        }
+        if (alreadyExist == false) {
+            book.setId(this.nextId++);
+            this.list.add(book);
+        }
     }
 }

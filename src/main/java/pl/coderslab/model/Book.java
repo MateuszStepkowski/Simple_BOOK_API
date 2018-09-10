@@ -76,8 +76,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return getId() == book.getId() &&
-                Objects.equals(getIsbn(), book.getIsbn()) &&
+        return  Objects.equals(getIsbn(), book.getIsbn()) &&
                 Objects.equals(getTitle(), book.getTitle()) &&
                 Objects.equals(getAuthor(), book.getAuthor()) &&
                 Objects.equals(getPublisher(), book.getPublisher()) &&
