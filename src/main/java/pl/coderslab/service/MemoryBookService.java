@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MemoryBookService {
+public class MemoryBookService implements BookService {
 
 
     private List<Book> list;
@@ -24,14 +24,19 @@ public class MemoryBookService {
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
     }
 
+    @Override
     public List<Book> getList() {
         return list;
     }
 
+
+    @Override
     public void setList(List<Book> list) {
         this.list = list;
     }
 
+
+    @Override
     public Book getBookById(long id) {
 
         for (Book book : list) {
@@ -41,6 +46,8 @@ public class MemoryBookService {
         return null;
     }
 
+
+    @Override
     public String addNewBook(Book book) {
 
         boolean alreadyExist = false;
@@ -58,6 +65,8 @@ public class MemoryBookService {
         return "already exist";
     }
 
+
+    @Override
     public String updateBook(long id, Book book) {
 
         for (Book b : list){
@@ -74,6 +83,8 @@ public class MemoryBookService {
         return "not exist";
     }
 
+
+    @Override
     public String deleteBook(long id) {
 
         if (this.list.remove(this.getBookById(id)) ){
